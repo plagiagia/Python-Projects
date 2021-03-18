@@ -17,6 +17,12 @@ class Board:
         self.tick_player_2 = []
 
     def show_board(self, player1_moves, player2_moves):
+        """
+
+        :param player1_moves: Moves of first player
+        :param player2_moves: Moves of second player
+        :return: A board of w x h dimensions
+        """
         self.tick_player_1 = player1_moves
         self.tick_player_2 = player2_moves
         self.clear_screen()
@@ -42,9 +48,16 @@ class Board:
 
     @staticmethod
     def clear_screen():
+        """
+        Clears the screen each time is called also checks the OS
+        """
         os.system('cls' if os.name == 'nt' else 'clear')
 
     def draw_player(self, idx):
+        """
+        :param idx: index of the move
+        :return: Prints the a appropriate symbol for each player
+        """
         if idx in self.tick_player_1:
             return 'X'
         elif idx in self.tick_player_2:

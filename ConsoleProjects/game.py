@@ -3,6 +3,11 @@ from Player import Player
 
 
 def check_win(player):
+    """
+
+    :param player: An object of Player class, representing each player who makes a move
+    :return: True if player has won else False
+    """
     win_horizontal = [2, 5, 8]
     win_vertical = [4, 5, 6]
     win_diagonal = [5]
@@ -30,6 +35,10 @@ def check_win(player):
 
 
 def check_move(player):
+    """
+    Checks if the move is valid if mot removes the last move and promtpts player to make a new one
+    :param player: The player who made the move
+    """
     last_move = player.moves[-1]
     try:
         b.boxes.remove(last_move)
@@ -56,3 +65,5 @@ if __name__ == "__main__":
         b.show_board(player1.moves, player2.moves)
         if check_win(player2):
             break
+        if len(b.boxes) == 0:
+            print("Draw!!!")

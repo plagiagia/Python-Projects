@@ -10,9 +10,13 @@ To play the game just run from console the command
 > python game.py
 ```
 
-The console will promt to enter names for each player, after that the board will appear and it will be asked from first player to enter a move. Each move is validated. If a player has already played this move then this player has to choose again. 
+The console will prompt to enter names for each player, after that the board will appear and it will be asked from first player to enter a move. Each move is validated. If a player has already played this move then this player has to choose again.
 
 To end the game just type
 ```python
 > ctr + z
 ```
+
+## ToDo
+- Add scores in case of multiple games
+- Give the ability to players to choose the dimensions of the board
