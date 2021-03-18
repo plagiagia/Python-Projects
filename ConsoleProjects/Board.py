@@ -2,7 +2,7 @@ import os
 
 
 class Board:
-    def __init__(self, dimensions: tuple, ticks: tuple):
+    def __init__(self, dimensions: tuple):
         """
         Initialize the game board with specified dimensions
 
@@ -12,12 +12,13 @@ class Board:
         """
         self.height = dimensions[0]
         self.width = dimensions[1]
-        self.tick_player_1 = ticks[0]
-        self.tick_player_2 = ticks[1]
+        self.boxes = [i for i in range(1, (self.height * self.width) + 1)]
+        self.tick_player_1 = []
+        self.tick_player_2 = []
 
-        self.show_board()
-
-    def show_board(self):
+    def show_board(self, player1_moves, player2_moves):
+        self.tick_player_1 = player1_moves
+        self.tick_player_2 = player2_moves
         self.clear_screen()
         right = "__{}__|"
         left = "__{}__"
