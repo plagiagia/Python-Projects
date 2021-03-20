@@ -11,36 +11,37 @@ def check_win(player):
     win_horizontal = [2, 8]
     win_vertical = [4, 6]
     win_center = [5]
-    result = False
 
-    for each in player.moves:
+    last_move = player.moves[-1]
 
-        if each in win_horizontal:
-            if (each - 1) in player.moves and (each + 1) in player.moves:
-                print("Player {} wins!".format(player.name))
-                return True
-            else:
-                return False
+    if last_move in win_horizontal:
+        if (last_move - 1) in player.moves and (last_move + 1) in player.moves:
+            print("Player {} wins!".format(player.name))
+            return True
+        else:
+            return False
 
-        if each in win_vertical:
-            if (each - 3) in player.moves and (each + 3) in player.moves:
-                print("Player {} wins!".format(player.name))
-                return True
-            else:
-                return False
+    if last_move in win_vertical:
+        if (last_move - 3) in player.moves and (last_move + 3) in player.moves:
+            print("Player {} wins!".format(player.name))
+            return True
+        else:
+            return False
 
-        if each in win_center:
-            diagonal = ((each - 4) in player.moves and (each + 4) in player.moves) or (
-                    (each - 2) in player.moves and (each + 2) in player.moves)
-            horizontal = (each - 1) in player.moves and (each + 1) in player.moves
-            vertical = (each - 3) in player.moves and (each + 3) in player.moves
-            if diagonal or horizontal or vertical:
-                print("Player {} wins!".format(player.name))
-                return True
-            else:
-                return False
+    if last_move in win_center:
+        diagonal = ((last_move - 4) in player.moves and (last_move + 4) in player.moves) or (
+                (last_move - 2) in player.moves and (last_move + 2) in player.moves)
+        horizontal = (last_move - 1) in player.moves and (last_move + 1) in player.moves
+        vertical = (last_move - 3) in player.moves and (last_move + 3) in player.moves
+        if diagonal or horizontal or vertical:
+            print("Player {} wins!".format(player.name))
+            return True
+        else:
+            return False
 
-    return result
+    if len(b.boxes) == 0:
+        print("Draw!!!")
+        return True
 
 
 def check_move(player):
@@ -74,8 +75,4 @@ if __name__ == "__main__":
         check_move(player2)
         b.show_board(player1.moves, player2.moves)
         if check_win(player2):
-            break
-
-        if len(b.boxes) == 0:
-            print("Draw!!!")
             break
