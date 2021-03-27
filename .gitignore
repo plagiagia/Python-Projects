@@ -1,1 +1,2 @@
-/WebScrap/JobSearch/.idea/
+*.idea
+WebScrap/JobSearch/my_tokens.py
