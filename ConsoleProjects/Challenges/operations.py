@@ -67,7 +67,29 @@ class Operations:
         return self.operations
 
 
-a = Operations(6, 7)
-calc = a.calculate_operations()
-print(f"Number of calculations to go from {a.n1} to {a.n2} are {calc}")
+# a = Operations(6, 7)
+# calc = a.calculate_operations()
+# print(f"Number of calculations to go from {a.n1} to {a.n2} are {calc}")
 
+# test_list = [x for x in range(1, 100)]
+# calcs = []
+#
+# for each in test_list:
+#     a = Operations(1, each)
+#     calcs.append(a.calculate_operations())
+#
+# import matplotlib.pyplot as plt
+#
+# plt.plot(test_list, calcs)
+# plt.grid()
+# plt.show()
+
+
+import plotly.figure_factory as ff
+import numpy as np
+np.random.seed(1)
+
+X = np.random.rand(15, 12) # 15 samples, with 12 dimensions each
+fig = ff.create_dendrogram(X)
+fig.update_layout(width=800, height=500)
+fig.show()
